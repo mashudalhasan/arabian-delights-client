@@ -42,7 +42,7 @@ const Banner = () => {
             className="max-w-sm lg:max-w-lg rounded-lg border border-gray-100 shadow-2xl"
           />
           <div className="lg:w-1/2">
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-4xl lg:text-5xl font-bold">
               Welcome to <br /> Arabian Delights 🧆
             </h1>
             <p className="py-6">

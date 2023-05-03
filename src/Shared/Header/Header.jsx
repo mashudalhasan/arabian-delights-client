@@ -61,7 +61,7 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         <Link
-          className="inline-flex items-center gap-2 rounded-lg bg-warning px-8 py-3 transition hover:scale-110 hover:shadow-xl active:bg-indigo-500"
+          className="inline-flex items-center gap-2 rounded-lg bg-warning px-8 py-3 transition hover:scale-110 hover:shadow-xl active:bg-yellow-400"
           to="/login"
         >
           <span className="text-sm font-medium"> Login </span>
