@@ -94,17 +94,17 @@ const Login = () => {
       </form>
       <div className="flex-grow mt-8">
         <Link to="/chefsInfo/0">
-          <button className="inline-flex items-center gap-3 justify-center rounded-lg px-8 py-3 hover:shadow-md text-sm font-medium w-full mx-auto text-center border-2 border-black bg-black text-white transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75">
-            <FaGithub className="h-6 w-6" />
-            <span>Continue with Github</span>
+          <button className="inline-flex items-center gap-3 justify-start rounded-full ps-2 pr-8 py-1 hover:shadow-sm w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75">
+            <FaGithub className="h-7 w-7 mr-28" />
+            <span className="text-sm font-medium">Continue with Github</span>
           </button>
         </Link>
       </div>
       <div className="flex-grow mt-2">
         <Link to="/chefsInfo/0">
-          <button className="inline-flex items-center gap-3 justify-center rounded-lg px-8 py-3 hover:shadow-md text-sm font-medium w-full mx-auto text-center bg-slate-50 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75">
-            <FcGoogle className="h-6 w-6" />
-            <span>Continue with Google</span>
+          <button className="inline-flex items-center gap-3 justify-start rounded-full ps-2 pr-8 py-1 hover:shadow-sm w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75">
+            <FcGoogle className="h-7 w-7 mr-28" />
+            <span className="text-sm font-medium">Continue with Google</span>
           </button>
         </Link>
       </div>
