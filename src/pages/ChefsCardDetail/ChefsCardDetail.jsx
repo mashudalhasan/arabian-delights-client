@@ -22,12 +22,17 @@ const ChefsCardDetail = ({ card }) => {
           className="h-96 w-full rounded-md object-cover"
         />
 
-        <div className="mt-2">
+        <div className="flex flex-col mt-2">
           <dl>
             <div>
               <dt className="sr-only">Name</dt>
 
               <dd className="font-medium">{chefName}</dd>
+            </div>
+            <div>
+              <dt className="sr-only">Name</dt>
+
+              <dd className="text-sm text-gray-500">{chefDescription}</dd>
             </div>
           </dl>
 
@@ -60,8 +65,12 @@ const ChefsCardDetail = ({ card }) => {
               </div>
             </div>
           </div>
-          <div className="mt-8">
-            <Link to={`/recipesInfo/${id}`}><button className="rounded-lg bg-warning px-8 py-3 transition hover:shadow-md active:bg-yellow-400 text-sm font-medium w-full mx-auto text-center">View Details</button></Link>
+          <div className="flex-grow mt-8">
+            <Link to={`/recipesInfo/${id}`}>
+              <button className="rounded-lg bg-warning px-8 py-3 transition hover:shadow-md active:bg-yellow-400 text-sm font-medium w-full mx-auto text-center">
+                View Details
+              </button>
+            </Link>
           </div>
         </div>
       </div>

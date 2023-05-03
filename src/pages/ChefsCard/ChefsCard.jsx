@@ -13,8 +13,13 @@ const ChefsCard = () => {
 
   return (
     <div>
-      <h2 className="text-xl lg:text-3xl font-bold text-center border-b border-gray-100 pb-6">World Class Arabian Chef's 👨🏻‍🍳</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <h2 className="text-xl lg:text-3xl font-bold text-center border-b border-gray-100 pb-6">
+        World Class Arabian Chef's 👨🏻‍🍳
+      </h2>
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+        style={{ gridAutoRows: "minmax(0, 1fr)" }}
+      >
         {chefsCard.map((card) => (
           <ChefsCardDetail key={card.id} card={card}></ChefsCardDetail>
         ))}
