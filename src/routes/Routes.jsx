@@ -3,6 +3,7 @@ import Main from "../layouts/Main";
 import Home from "../pages/Home/Home/Home";
 import Blog from "../pages/Blog/Blog";
 import ChefsCard from "../pages/ChefsCard/ChefsCard";
+import RecipesInfo from "../pages/RecipesInfo/RecipesInfo";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
         path: "blog",
         element: <Blog></Blog>,
       },
+      {
+        path: 'recipesInfo/:id',
+        element: <RecipesInfo></RecipesInfo>,
+        loader: ({params}) => fetch(`http://localhost:5000/recipesInfo/${params.id}`)
+      }
     ],
   },
 ]);
