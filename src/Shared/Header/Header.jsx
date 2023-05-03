@@ -31,7 +31,7 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li className="hover:bg-warning hover:rounded-lg">
-              <Link to="/">Home</Link>
+              <Link to="/chefsInfo/0">Home</Link>
             </li>
             <li className="hover:bg-warning hover:rounded-lg">
               <Link to="/blog">Blog</Link>

@@ -6,8 +6,7 @@ const Home = () => {
     
   return (
     <div>
-      <Banner></Banner>
-      <ChefsCard></ChefsCard>
+      
     </div>
   );
 };
