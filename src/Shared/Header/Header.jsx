@@ -74,7 +74,7 @@ const Header = () => {
           <span className="mr-4 border-4 rounded-full border-slate-100 transition hover:scale-110 hover:shadow-xl">
             <img
               className="w-10 h-10 rounded-full"
-              src={user.photoURL}
+              src={user?.photoURL}
               alt=""
             />
           </span>

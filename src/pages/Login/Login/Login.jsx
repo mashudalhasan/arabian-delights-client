@@ -5,13 +5,22 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Login = () => {
-  const { signIn, googleSignIn } = useContext(AuthContext);
+  const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   //   console.log("login page location", location);
 
   const handleGoogleSignIn = () => {
     googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => console.error(error.message));
+  };
+
+  const handleGithubSignIn = () => {
+    githubSignIn()
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
@@ -133,7 +142,10 @@ const Login = () => {
       </form>
       <div className="flex-grow mt-8">
         <Link to="/chefsInfo/0">
-          <button className="inline-flex items-center gap-3 justify-start rounded-full ps-2 pr-8 py-1 hover:shadow-sm w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75">
+          <button
+            onClick={handleGithubSignIn}
+            className="inline-flex items-center gap-3 justify-start rounded-full ps-2 pr-8 py-1 hover:shadow-sm w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75"
+          >
             <FaGithub className="h-7 w-7 mr-28" />
             <span className="text-sm font-medium">Continue with Github</span>
           </button>
