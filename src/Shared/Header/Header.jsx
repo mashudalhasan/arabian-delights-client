@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -60,27 +70,46 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link
-          className="inline-flex items-center gap-2 rounded-lg bg-warning px-8 py-3 transition hover:scale-110 hover:shadow-xl active:bg-yellow-400"
-          to="/login"
-        >
-          <span className="text-sm font-medium"> Login </span>
-
-          <svg
-            className="h-5 w-5 rtl:rotate-180"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
+        {user && (
+          <span className="mr-4 border-4 rounded-full border-slate-100 transition hover:scale-110 hover:shadow-xl">
+            <img
+              className="w-10 h-10 rounded-full"
+              src={user.photoURL}
+              alt=""
             />
-          </svg>
-        </Link>
+          </span>
+        )}
+        {user ? (
+          <Link
+            onClick={handleLogOut}
+            className="inline-flex items-center gap-2 rounded-lg bg-warning px-3 lg:px-8 py-3 transition hover:scale-110 hover:shadow-xl active:bg-yellow-400"
+            to="/login"
+          >
+            <span className="text-sm font-medium"> Logout </span>{" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+              />
+            </svg>
+          </Link>
+        ) : (
+          <Link
+            className="inline-flex items-center gap-2 rounded-lg bg-warning px-8 py-3 transition hover:scale-110 hover:shadow-xl active:bg-yellow-400"
+            to="/login"
+          >
+            <span className="text-sm font-medium"> Login </span>{" "}
+            <FaLongArrowAltRight className="" />
+          </Link>
+        )}
       </div>
     </div>
   );
