@@ -1,5 +1,4 @@
 import React from "react";
-import bannerImage from "../../../assets/images/saudi-arabian-kabsa-spiced-chicken-quarter-rice-roasted-almonds-raisins-garlic-black-plate_268847-11.jpg";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
@@ -7,7 +6,7 @@ const Banner = () => {
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse gap-8 lg:gap-0">
         <img
-          src={bannerImage}
+          src="https://img.freepik.com/premium-photo/saudi-arabian-kabsa-spiced-chicken-quarter-rice-roasted-almonds-raisins-garlic-black-plate_268847-1077.jpg?w=2000"
           className="max-w-sm lg:max-w-lg rounded-lg border border-gray-100 shadow-2xl"
         />
         <div className="lg:w-1/2">
@@ -20,7 +19,7 @@ const Banner = () => {
           </p>
           <Link
             className="group relative inline-block overflow-hidden border border-warning px-8 py-3 rounded-lg"
-            href="/download"
+            to="/login"
           >
             <span className="absolute inset-y-0 left-0 w-[2px] bg-warning transition-all group-hover:w-full group-active:bg-yellow-400"></span>
 

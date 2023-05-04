@@ -5,10 +5,19 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("login page location", location);
+  //   console.log("login page location", location);
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => console.error(error.message));
+  };
 
   const from = location.state?.from?.pathname || "/chefsInfo/0";
 
@@ -131,8 +140,11 @@ const Login = () => {
         </Link>
       </div>
       <div className="flex-grow mt-2">
-        <Link to="/chefsInfo/0">
-          <button className="inline-flex items-center gap-3 justify-start rounded-full ps-2 pr-8 py-1 hover:shadow-sm w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75">
+        <Link>
+          <button
+            onClick={handleGoogleSignIn}
+            className="inline-flex items-center gap-3 justify-start rounded-full ps-2 pr-8 py-1 hover:shadow-sm w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75"
+          >
             <FcGoogle className="h-7 w-7 mr-28" />
             <span className="text-sm font-medium">Continue with Google</span>
           </button>
