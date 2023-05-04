@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -40,11 +40,25 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li className="hover:bg-warning hover:rounded-lg">
-              <Link to="/chefsInfo/0">Home</Link>
+            <li>
+              <NavLink
+                to="/chefsInfo/0"
+                className={({ isActive }) =>
+                  isActive ? "text-warning" : ""
+                }
+              >
+                Home
+              </NavLink>
             </li>
-            <li className="hover:bg-warning hover:rounded-lg">
-              <Link to="/blog">Blog</Link>
+            <li>
+              <NavLink
+                to="/blog"
+                className={({ isActive }) =>
+                  isActive ? "text-warning" : ""
+                }
+              >
+                Blog
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -61,11 +75,25 @@ const Header = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 lg:flex justify-center items-center gap-6 font-medium">
-          <li className="hover:bg-warning hover:rounded-lg">
-            <Link to="/">Home</Link>
+          <li>
+            <NavLink
+              to="/chefsInfo/0"
+              className={({ isActive }) =>
+                isActive ? "text-warning" : ""
+              }
+            >
+              Home
+            </NavLink>
           </li>
-          <li className="hover:bg-warning hover:rounded-lg">
-            <Link to="/blog">Blog</Link>
+          <li>
+            <NavLink
+              to="/blog"
+              className={({ isActive }) =>
+                isActive ? "text-warning" : ""
+              }
+            >
+              Blog
+            </NavLink>
           </li>
         </ul>
       </div>

@@ -10,11 +10,13 @@ import Register from "../pages/Login/Register/Register";
 import RecipesLayout from "../layouts/RecipesLayout";
 import PrivateRoute from "./PrivateRoute";
 import Terms from "../Shared/Terms/Terms";
+import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LoginLayout></LoginLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -32,18 +34,6 @@ const router = createBrowserRouter([
         path: "terms",
         element: <Terms></Terms>,
       },
-    ],
-  },
-  {
-    path: "chefsInfo",
-    element: <Main></Main>,
-    children: [
-      {
-        path: ":id",
-        element: <ChefsCard></ChefsCard>,
-        loader: ({ params }) =>
-          fetch(`https://chef-recipe-hunter-server-mashudalhasan.vercel.app/chefsInfo/${params.id}`),
-      },
       {
         path: "blog",
         element: <Blog></Blog>,
@@ -51,8 +41,24 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: "chefsInfo",
+    element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: ":id",
+        element: <ChefsCard></ChefsCard>,
+        loader: ({ params }) =>
+          fetch(
+            `https://chef-recipe-hunter-server-mashudalhasan.vercel.app/chefsInfo/${params.id}`
+          ),
+      },
+    ],
+  },
+  {
     path: "recipesInfo",
     element: <RecipesLayout></RecipesLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: ":id",
@@ -62,7 +68,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://chef-recipe-hunter-server-mashudalhasan.vercel.app/recipesInfo/${params.id}`),
+          fetch(
+            `https://chef-recipe-hunter-server-mashudalhasan.vercel.app/recipesInfo/${params.id}`
+          ),
       },
     ],
   },

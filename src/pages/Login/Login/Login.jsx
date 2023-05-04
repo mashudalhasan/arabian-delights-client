@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
-import { Form, Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const [error, setError] = useState("");
   const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -15,8 +17,11 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        toast.success("Login successful");
       })
-      .catch((error) => console.error(error.message));
+      .catch((error) => {
+        console.error(error.message);
+      });
   };
 
   const handleGithubSignIn = () => {
@@ -24,8 +29,11 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        toast.success("Login successful");
       })
-      .catch((error) => console.error(error.message));
+      .catch((error) => {
+        console.error(error.message);
+      });
   };
 
   const from = location.state?.from?.pathname || "/chefsInfo/0";
@@ -44,8 +52,15 @@ const Login = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         navigate(from, { replace: true });
+        setError("");
+        event.target.reset();
+        toast.success("Login successful");
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error.message);
+        setError(error.message);
+        toast.error(error.message + "🔥");
+      });
   };
 
   return (
@@ -65,6 +80,7 @@ const Login = () => {
               name="email"
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               placeholder="Enter email"
+              required
             />
 
             <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -97,6 +113,7 @@ const Login = () => {
               name="password"
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               placeholder="Enter password"
+              required
             />
 
             <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -122,6 +139,12 @@ const Login = () => {
               </svg>
             </span>
           </div>
+        </div>
+
+        <div>
+          <p className="text-error font-medium">
+            <small>{error}</small>
+          </p>
         </div>
 
         <div className="flex items-center justify-between">

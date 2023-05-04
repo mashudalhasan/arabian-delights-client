@@ -1,15 +1,22 @@
 import React, { useContext, useState } from "react";
 import logo from "../../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { createUser, profileUpdate } = useContext(AuthContext);
   const [accepted, setAccepted] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log("login page location", location);
 
   const handleAccepted = (event) => {
     setAccepted(event.target.checked);
   };
+
+  const from = location.state?.from?.pathname || "/chefsInfo/0";
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -23,10 +30,32 @@ const Register = () => {
 
     console.log(name, photo, email, password, confirm);
 
+    // validate
+
+    if (!/(?=.*[A-Z])/.test(password)) {
+      setError("Please add at least one uppercase letter");
+      return;
+    } else if (password !== confirm) {
+      setError("Passwords do not match");
+      return;
+    } else if (!/(?=.*[0-9])/.test(password)) {
+      setError("Please add at least one number");
+      return;
+    } else if (!/(?=.*[!@#$&*])/.test(password)) {
+      setError("Please add at least one special characters");
+      return;
+    } else if (password.length < 6) {
+      setError("Please add at least 6 characters in your password");
+      return;
+    }
+
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
         console.log(createdUser);
+        navigate(from, { replace: true });
+        setError("");
+        toast.success("Registration successful");
 
         profileUpdate(createdUser, {
           displayName: name,
@@ -39,7 +68,10 @@ const Register = () => {
             console.error("Error updating profile:", error);
           });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
   };
 
   return (
@@ -180,6 +212,12 @@ const Register = () => {
                   required
                   className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
+              </div>
+
+              <div className="col-span-full">
+                <p className="text-error font-medium">
+                  <small>{error}</small>
+                </p>
               </div>
 
               <div className="col-span-6">
