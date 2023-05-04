@@ -190,7 +190,7 @@ const Register = () => {
                   <span className="text-sm text-gray-700">
                     By creating an account, you agree to our{" "}
                     <Link
-                      to="/login"
+                      to="/terms"
                       className="text-gray-700 hover:underline font-medium"
                     >
                       terms and conditions
