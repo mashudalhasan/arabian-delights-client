@@ -19,7 +19,7 @@ const Header = () => {
         <div className="dropdown">
           <label
             tabIndex={0}
-            className="btn btn-outline btn-warning lg:hidden border-none mr-3"
+            className="btn btn-outline btn-warning lg:hidden border-none"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -43,9 +43,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/chefsInfo/0"
-                className={({ isActive }) =>
-                  isActive ? "text-warning" : ""
-                }
+                className={({ isActive }) => (isActive ? "text-warning" : "")}
               >
                 Home
               </NavLink>
@@ -53,11 +51,18 @@ const Header = () => {
             <li>
               <NavLink
                 to="/blog"
-                className={({ isActive }) =>
-                  isActive ? "text-warning" : ""
-                }
+                className={({ isActive }) => (isActive ? "text-warning" : "")}
               >
                 Blog
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                onClick={handleLogOut}
+                to="/login"
+                className={({ isActive }) => (isActive ? "text-warning" : "")}
+              >
+                Logout
               </NavLink>
             </li>
           </ul>
@@ -65,7 +70,7 @@ const Header = () => {
         <div className="flex justify-center items-center">
           <img
             src={logo}
-            className="mr-3 h-8 sm:h-12"
+            className="mr-1 lg:mr-3 h-8 sm:h-12"
             alt="Arabian Delights Logo"
           />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
@@ -78,9 +83,7 @@ const Header = () => {
           <li>
             <NavLink
               to="/chefsInfo/0"
-              className={({ isActive }) =>
-                isActive ? "text-warning" : ""
-              }
+              className={({ isActive }) => (isActive ? "text-warning" : "")}
             >
               Home
             </NavLink>
@@ -88,9 +91,7 @@ const Header = () => {
           <li>
             <NavLink
               to="/blog"
-              className={({ isActive }) =>
-                isActive ? "text-warning" : ""
-              }
+              className={({ isActive }) => (isActive ? "text-warning" : "")}
             >
               Blog
             </NavLink>
@@ -99,7 +100,7 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         {user && (
-          <span className="mr-4 border-4 rounded-full border-slate-100 transition hover:scale-110 hover:shadow-xl">
+          <span className="mr-2 lg:mr-4 border-4 rounded-full border-slate-100 transition hover:scale-110 hover:shadow-xl">
             <img
               className="w-10 h-10 rounded-full"
               src={user?.photoURL}
@@ -110,7 +111,7 @@ const Header = () => {
         {user ? (
           <Link
             onClick={handleLogOut}
-            className="inline-flex items-center gap-2 rounded-lg bg-warning px-3 lg:px-8 py-3 transition hover:scale-110 hover:shadow-xl active:bg-yellow-400"
+            className="hidden lg:inline-flex items-center gap-1 rounded-lg bg-warning px-2 lg:px-8 py-3 transition hover:scale-110 hover:shadow-xl active:bg-yellow-400"
             to="/login"
           >
             <span className="text-sm font-medium"> Logout </span>{" "}
@@ -131,11 +132,11 @@ const Header = () => {
           </Link>
         ) : (
           <Link
-            className="inline-flex items-center gap-2 rounded-lg bg-warning px-8 py-3 transition hover:scale-110 hover:shadow-xl active:bg-yellow-400"
+            className="inline-flex items-center gap-1 rounded-lg bg-warning px-2 lg:px-8 py-3 transition hover:scale-110 hover:shadow-xl active:bg-yellow-400"
             to="/login"
           >
             <span className="text-sm font-medium"> Login </span>{" "}
-            <FaLongArrowAltRight className="" />
+            <FaLongArrowAltRight />
           </Link>
         )}
       </div>

@@ -68,7 +68,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col mx-auto mb-0 mt-8 max-w-md">
+    <div className="flex flex-col mx-auto mb-0 mt-8 max-w-sm lg:max-w-md">
       <h2 className="text-5xl font-bold border-b border-gray-100 pb-5">
         Login
       </h2>
