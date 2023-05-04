@@ -13,9 +13,9 @@ const ChefsCard = () => {
   //       .catch((error) => console.log(error));
   //   }, []);
   const { id } = useParams();
-  console.log(id);
+//   console.log(id);
   const chefsCard = useLoaderData();
-  console.log(chefsCard);
+//   console.log(chefsCard);
 
   return (
     <div>

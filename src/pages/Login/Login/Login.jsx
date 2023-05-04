@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Form, Link, useNavigate } from "react-router-dom";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../../contexts/AuthProvider";
@@ -7,6 +7,10 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 const Login = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log("login page location", location);
+
+  const from = location.state?.from?.pathname || "/chefsInfo/0";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -21,7 +25,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        navigate('/chefsInfo/0')
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };

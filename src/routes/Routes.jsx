@@ -8,6 +8,7 @@ import LoginLayout from "../layouts/LoginLayout";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 import RecipesLayout from "../layouts/RecipesLayout";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: ":id",
-        element: <RecipesInfo></RecipesInfo>,
+        element: (
+          <PrivateRoute>
+            <RecipesInfo></RecipesInfo>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/recipesInfo/${params.id}`),
       },
