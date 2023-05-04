@@ -1,10 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Register = () => {
   const { createUser, profileUpdate } = useContext(AuthContext);
+  const [accepted, setAccepted] = useState(false);
+
+  const handleAccepted = (event) => {
+    setAccepted(event.target.checked);
+  };
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -180,6 +185,7 @@ const Register = () => {
               <div className="col-span-6">
                 <label htmlFor="MarketingAccept" className="flex gap-4">
                   <input
+                    onClick={handleAccepted}
                     type="checkbox"
                     id="MarketingAccept"
                     name="marketing_accept"
@@ -201,8 +207,11 @@ const Register = () => {
 
               <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
                 <button
+                  disabled={!accepted}
                   type="submit"
-                  className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
+                  className={`inline-block shrink-0 rounded-md border border-warning bg-warning px-12 py-3 text-sm font-medium  transition hover:bg-transparent hover:text-warning focus:outline-none focus:ring active:text-yellow-400 ${
+                    !accepted ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 >
                   Create an account
                 </button>
