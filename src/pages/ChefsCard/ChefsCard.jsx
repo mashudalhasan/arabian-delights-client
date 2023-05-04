@@ -2,20 +2,12 @@ import React, { useEffect, useState } from "react";
 import ChefsCardDetail from "../ChefsCardDetail/ChefsCardDetail";
 import { useLoaderData, useParams } from "react-router-dom";
 import Banner from "../Home/Banner/Banner";
+import ArabianDelights from "../Home/ArabianDelights/ArabianDelights";
+import NewsLetter from "../Home/NewsLetter/NewsLetter";
 
 const ChefsCard = () => {
-  //   const [chefsCard, setChefsCard] = useState([]);
-
-  //   useEffect(() => {
-  //     fetch("https://chef-recipe-hunter-server-mashudalhasan.vercel.app/chefsInfo")
-  //       .then((res) => res.json())
-  //       .then((data) => setChefsCard(data))
-  //       .catch((error) => console.log(error));
-  //   }, []);
   const { id } = useParams();
-//   console.log(id);
   const chefsCard = useLoaderData();
-//   console.log(chefsCard);
 
   return (
     <div>
@@ -33,6 +25,8 @@ const ChefsCard = () => {
           ))}
         </div>
       </div>
+      <ArabianDelights></ArabianDelights>
+      <NewsLetter></NewsLetter>
     </div>
   );
 };
