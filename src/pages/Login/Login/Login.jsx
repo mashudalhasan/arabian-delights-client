@@ -12,11 +12,14 @@ const Login = () => {
   const location = useLocation();
   //   console.log("login page location", location);
 
+  const from = location.state?.from?.pathname || "/chefsInfo/0";
+
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from, { replace: true });
         toast.success("Login successful");
       })
       .catch((error) => {
@@ -29,6 +32,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from, { replace: true });
         toast.success("Login successful");
       })
       .catch((error) => {
@@ -36,7 +40,7 @@ const Login = () => {
       });
   };
 
-  const from = location.state?.from?.pathname || "/chefsInfo/0";
+  
 
   const handleLogin = (event) => {
     event.preventDefault();
