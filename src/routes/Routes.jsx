@@ -10,6 +10,7 @@ import RecipesLayout from "../layouts/RecipesLayout";
 import PrivateRoute from "./PrivateRoute";
 import Terms from "../Shared/Terms/Terms";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
+import Privacy from "../Shared/Privacy/Privacy";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "terms",
         element: <Terms></Terms>,
+      },
+      {
+        path: "privacy",
+        element: <Privacy></Privacy>,
       },
       {
         path: "blog",

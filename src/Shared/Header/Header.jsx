@@ -19,7 +19,7 @@ const Header = () => {
         <div className="dropdown">
           <label
             tabIndex={0}
-            className="btn btn-outline btn-warning lg:hidden border-none mr-3"
+            className="btn btn-outline btn-warning lg:hidden border-none mr-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,5 +1,11 @@
 import React from "react";
-import { FcShop } from "react-icons/fc";
+import {
+  FcShop,
+  FcApproval,
+  FcEngineering,
+  FcTemplate,
+  FcGlobe,
+} from "react-icons/fc";
 
 const ArabianDelights = () => {
   return (
@@ -33,7 +39,7 @@ const ArabianDelights = () => {
               href="#"
             >
               <span className="inline-block rounded-lg bg-slate-50 p-3">
-                <FcShop className="h-7 w-7" />
+                <FcApproval className="h-7 w-7" />
               </span>
 
               <h2 className="mt-2 font-bold">Authentic</h2>
@@ -48,7 +54,7 @@ const ArabianDelights = () => {
               href="#"
             >
               <span className="inline-block rounded-lg bg-slate-50 p-3">
-                <FcShop className="h-7 w-7" />
+                <FcEngineering className="h-7 w-7" />
               </span>
 
               <h2 className="mt-2 font-bold">Skilled</h2>
@@ -63,7 +69,7 @@ const ArabianDelights = () => {
               href="#"
             >
               <span className="inline-block rounded-lg bg-slate-50 p-3">
-                <FcShop className="h-7 w-7" />
+                🍽️
               </span>
 
               <h2 className="mt-2 font-bold">Wide</h2>
@@ -78,7 +84,7 @@ const ArabianDelights = () => {
               href="#"
             >
               <span className="inline-block rounded-lg bg-slate-50 p-3">
-                <FcShop className="h-7 w-7" />
+                🥩
               </span>
 
               <h2 className="mt-2 font-bold">Fresh</h2>
@@ -109,7 +115,7 @@ const ArabianDelights = () => {
               href="#"
             >
               <span className="inline-block rounded-lg bg-slate-50 p-3">
-                <FcShop className="h-7 w-7" />
+                <FcGlobe className="h-7 w-7" />
               </span>
 
               <h2 className="mt-2 font-bold">Unforgettable</h2>

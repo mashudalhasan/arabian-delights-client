@@ -14,7 +14,7 @@ const ChefsCardDetail = ({ card }) => {
   } = card;
 
   return (
-    <div className="my-10">
+    <div className="my-5 lg:my-10">
       <div className="block rounded-lg p-4 shadow-sm shadow-indigo-100">
         <img
           alt="Chef"
