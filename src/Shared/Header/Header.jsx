@@ -19,7 +19,7 @@ const Header = () => {
         <div className="dropdown">
           <label
             tabIndex={0}
-            className="btn btn-outline btn-warning lg:hidden border-none"
+            className="btn btn-outline btn-warning lg:hidden border-none mr-3"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -67,16 +67,18 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <div className="flex justify-center items-center">
-          <img
-            src={logo}
-            className="mr-1 lg:mr-3 h-8 sm:h-12"
-            alt="Arabian Delights Logo"
-          />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Arabian Delights
-          </span>
-        </div>
+        <Link to="/chefsInfo/0">
+          <div className="flex justify-center items-center">
+            <img
+              src={logo}
+              className="mr-1 lg:mr-3 h-8 sm:h-12"
+              alt="Arabian Delights Logo"
+            />
+            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+              Arabian Delights
+            </span>
+          </div>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 lg:flex justify-center items-center gap-6 font-medium">

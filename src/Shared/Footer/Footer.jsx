@@ -168,7 +168,7 @@ const Footer = () => {
                   <li>
                     <a
                       className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
+                      href="/terms"
                     >
                       FAQs
                     </a>
@@ -287,7 +287,7 @@ const Footer = () => {
 
               <a
                 className="inline-block mx-3 text-teal-600 underline transition hover:text-teal-600/75"
-                href="/"
+                href="/terms"
               >
                 Terms & Conditions
               </a>
@@ -296,7 +296,7 @@ const Footer = () => {
 
               <a
                 className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
-                href="/"
+                href="/terms"
               >
                 Privacy Policy
               </a>

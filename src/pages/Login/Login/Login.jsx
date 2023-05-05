@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState("");
+  const [show, setShow] = useState(false);
   const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -40,8 +41,6 @@ const Login = () => {
       });
   };
 
-  
-
   const handleLogin = (event) => {
     event.preventDefault();
 
@@ -68,7 +67,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col mx-auto mb-0 mt-8 max-w-sm lg:max-w-md">
+    <div className="flex flex-col mx-auto mb-0 mt-8 w-4/5 lg:max-w-md">
       <h2 className="text-5xl font-bold border-b border-gray-100 pb-5">
         Login
       </h2>
@@ -113,14 +112,17 @@ const Login = () => {
 
           <div className="relative">
             <input
-              type="password"
+              type={show ? "text" : "password"}
               name="password"
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               placeholder="Enter password"
               required
             />
 
-            <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
+            <span
+              onClick={() => setShow(!show)}
+              className="absolute inset-y-0 end-0 grid place-content-center px-4 cursor-pointer"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4 text-gray-400"
@@ -154,7 +156,10 @@ const Login = () => {
         <div className="flex items-center justify-between">
           <p className="text-sm text-gray-500">
             Don't have an account?
-            <Link className="hover:underline ml-2 text-error" to="/register">
+            <Link
+              className="hover:underline ml-1 lg:ml-2 text-error"
+              to="/register"
+            >
               Register
             </Link>
           </p>
@@ -173,7 +178,7 @@ const Login = () => {
             onClick={handleGithubSignIn}
             className="inline-flex items-center gap-3 justify-start rounded-full ps-2 pr-8 py-1 hover:shadow-sm w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75"
           >
-            <FaGithub className="h-7 w-7 mr-28" />
+            <FaGithub className="h-7 w-7 mr-10 lg:mr-28" />
             <span className="text-sm font-medium">Continue with Github</span>
           </button>
         </Link>
@@ -184,7 +189,7 @@ const Login = () => {
             onClick={handleGoogleSignIn}
             className="inline-flex items-center gap-3 justify-start rounded-full ps-2 pr-8 py-1 hover:shadow-sm w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75"
           >
-            <FcGoogle className="h-7 w-7 mr-28" />
+            <FcGoogle className="h-7 w-7 mr-10 lg:mr-28" />
             <span className="text-sm font-medium">Continue with Google</span>
           </button>
         </Link>
