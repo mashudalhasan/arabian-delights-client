@@ -175,11 +175,13 @@ const Login = () => {
       <div className="flex-grow mt-8">
         <Link to="/chefsInfo/0">
           <button
-            onClick={handleGithubSignIn}
-            className="inline-flex items-center gap-3 justify-start rounded-full ps-2 pr-8 py-1 hover:shadow-sm w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75"
+            onClick={handleGoogleSignIn}
+            className="flex items-center justify-center rounded-full py-1 px-2 lg:px-8 w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75"
           >
-            <FaGithub className="h-7 w-7 mr-10 lg:mr-28" />
-            <span className="text-sm font-medium">Continue with Github</span>
+            <FaGithub className="h-7 w-7 mr-2" />{" "}
+            <span className="flex-1 text-sm font-medium">
+              Continue with Github
+            </span>{" "}
           </button>
         </Link>
       </div>
@@ -187,10 +189,12 @@ const Login = () => {
         <Link>
           <button
             onClick={handleGoogleSignIn}
-            className="inline-flex items-center gap-3 justify-start rounded-full ps-2 pr-8 py-1 hover:shadow-sm w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75"
+            className="flex items-center justify-center rounded-full py-1 px-2 lg:px-8 w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75"
           >
-            <FcGoogle className="h-7 w-7 mr-10 lg:mr-28" />
-            <span className="text-sm font-medium">Continue with Google</span>
+            <FcGoogle className="h-7 w-7 mr-2" />{" "}
+            <span className="flex-1 text-sm font-medium">
+              Continue with Google
+            </span>{" "}
           </button>
         </Link>
       </div>
