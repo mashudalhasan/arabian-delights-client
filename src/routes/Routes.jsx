@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import Terms from "../Shared/Terms/Terms";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 import Privacy from "../Shared/Privacy/Privacy";
+import History from "../Shared/History/History";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "privacy",
         element: <Privacy></Privacy>,
+      },
+      {
+        path: "history",
+        element: <History></History>,
       },
       {
         path: "blog",

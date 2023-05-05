@@ -29,11 +29,6 @@ const ChefsCardDetail = ({ card }) => {
 
               <dd className="font-medium">{chefName}</dd>
             </div>
-            <div>
-              <dt className="sr-only">Name</dt>
-
-              <dd className="text-sm text-gray-500">{chefDescription}</dd>
-            </div>
           </dl>
 
           <div className="mt-6 flex items-center gap-8 text-xs">

@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { FaCertificate, FaHeart, FaPizzaSlice } from "react-icons/fa";
 
-const RecipeBanner = ({ card }) => {
+const RecipeBanner = ({ chef }) => {
   const {
     chefPicture,
     chefName,
@@ -10,33 +10,49 @@ const RecipeBanner = ({ card }) => {
     yearsOfExperience,
     numberOfRecipes,
     likes,
-  } = card;
+  } = chef;
 
   return (
     <div className="hero min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse gap-8 lg:gap-0">
+      <div className="hero-content flex-col lg:flex-row-reverse gap-8 lg:gap-10">
         <img
           src={chefPicture}
-          className="max-w-sm lg:max-w-lg rounded-lg border border-gray-100 shadow-2xl"
+          className="w-full lg:max-w-lg rounded-lg border border-gray-100 shadow-2xl"
         />
         <div className="lg:w-1/2">
           <h1 className="text-4xl lg:text-5xl font-bold">
             Welcome to <br /> {`${chefName}'s World`} 🧆
           </h1>
-          <p className="py-6">
-            Roaming the world's best Arabian chef's recipes, showcasing the
-            finest and most authentic flavors of Arabian cuisine.
-          </p>
-          <Link
-            className="group relative inline-block overflow-hidden border border-warning px-8 py-3 rounded-lg"
-            href="/download"
-          >
-            <span className="absolute inset-y-0 left-0 w-[2px] bg-warning transition-all group-hover:w-full group-active:bg-yellow-400"></span>
+          <p className="py-6 text-gray-500">{chefDescription}</p>
+          <div className="mt-6 flex items-center gap-8 text-xs">
+            <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+              <FaCertificate className="h-4 w-4 text-warning" />
+              <div className="mt-1.5 sm:mt-0">
+                <p className="text-gray-500">Experiences</p>
 
-            <span className="relative text-sm font-medium text-warning transition-colors group-hover:text-white">
-              Learn More
-            </span>
-          </Link>
+                <p className="font-medium">{yearsOfExperience}</p>
+              </div>
+            </div>
+
+            <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+              <FaPizzaSlice className="h-4 w-4 text-warning rotate-180" />
+              <div className="mt-1.5 sm:mt-0">
+                <p className="text-gray-500">Number of Recipes</p>
+
+                <p className="font-medium">{numberOfRecipes}</p>
+              </div>
+            </div>
+
+            <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+              <FaHeart className="h-4 w-4 text-warning" />
+
+              <div className="mt-1.5 sm:mt-0">
+                <p className="text-gray-500">Likes</p>
+
+                <p className="font-medium">{likes}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

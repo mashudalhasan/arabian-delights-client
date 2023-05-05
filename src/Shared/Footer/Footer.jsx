@@ -8,7 +8,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer aria-label="Site Footer" className="bg-white border-t border-gray-100">
+    <footer
+      aria-label="Site Footer"
+      className="bg-white border-t border-gray-100"
+    >
       <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
@@ -78,12 +81,12 @@ const Footer = () => {
               <nav aria-label="Footer About Nav" className="mt-8">
                 <ul className="space-y-4 text-sm">
                   <li>
-                    <a
+                    <Link
                       className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
+                      to="/history"
                     >
                       Our History
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
@@ -168,7 +171,7 @@ const Footer = () => {
                   <li>
                     <a
                       className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/terms"
+                      href="/blog"
                     >
                       FAQs
                     </a>
@@ -207,7 +210,10 @@ const Footer = () => {
 
               <ul className="mt-8 space-y-4 text-sm">
                 <li>
-                  <a className="flex items-center justify-center gap-1.5" href="/">
+                  <a
+                    className="flex items-center justify-center gap-1.5"
+                    href="/"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 shrink-0 text-gray-900"
@@ -230,7 +236,10 @@ const Footer = () => {
                 </li>
 
                 <li>
-                  <a className="flex items-center justify-center gap-1.5" href="/">
+                  <a
+                    className="flex items-center justify-center gap-1.5"
+                    href="/"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 shrink-0 text-gray-900"

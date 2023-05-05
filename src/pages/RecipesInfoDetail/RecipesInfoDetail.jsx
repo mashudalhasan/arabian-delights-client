@@ -31,15 +31,15 @@ const RecipesInfoDetail = ({ recipe }) => {
         <p className="font-semibold">
           <small>Ingredients</small>
         </p>
-        {ingredients.map((i) => (
-          <p>{i}</p>
+        {ingredients.map((i, index) => (
+          <p key={index}>{i}</p>
         ))}
         <p className="font-semibold">
           <small>Cooking Method:</small>
         </p>
         <p>{cooking_method}</p>
         <div className="card-actions justify-end items-center mt-4 gap-5">
-          <span class="rounded-full bg-yellow-100 px-3 py-1.5 text-xs font-medium text-yellow-600">
+          <span className="rounded-full bg-yellow-100 px-3 py-1.5 text-xs font-medium text-yellow-600">
             {rating}
           </span>
           <button
