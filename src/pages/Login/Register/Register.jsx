@@ -10,7 +10,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("login page location", location);
+  console.log("Register page location", location);
 
   const handleAccepted = (event) => {
     setAccepted(event.target.checked);
