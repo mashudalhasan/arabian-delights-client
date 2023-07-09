@@ -175,7 +175,7 @@ const Login = () => {
       <div className="flex-grow mt-8">
         <Link to="/chefsInfo/0">
           <button
-            onClick={handleGoogleSignIn}
+            onClick={handleGithubSignIn}
             className="flex items-center justify-center rounded-full py-1 px-2 lg:px-8 w-full mx-auto text-center bg-slate-50 border-2 border-slate-100 transition-colors hover:bg-transparent hover:text-black focus:outline-none focus:ring active:opacity-75"
           >
             <FaGithub className="h-7 w-7 mr-2" />{" "}
